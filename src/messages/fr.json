@@ -1,0 +1,53 @@
+{
+  "nav": {
+    "home": "Accueil",
+    "pricing": "Tarifs",
+    "about": "A propos",
+    "blog": "Blog",
+    "contact": "Contact",
+    "dashboard": "Tableau de bord",
+    "login": "Connexion",
+    "signup": "Commencer"
+  },
+  "hero": {
+    "title": "Generez des leads qualifies grace a l'IA",
+    "subtitle": "LeadForge AI automatise votre prospection B2B : enrichissement de donnees, sequences d'outreach personnalisees et suivi intelligent — tout en un seul endroit.",
+    "cta": "Demarrer gratuitement",
+    "ctaSecondary": "Voir la demo"
+  },
+  "footer": {
+    "description": "Plateforme de generation de leads propulsee par l'intelligence artificielle.",
+    "product": "Produit",
+    "company": "Entreprise",
+    "legal": "Legal",
+    "privacy": "Politique de confidentialite",
+    "terms": "Conditions d'utilisation",
+    "copyright": "Tous droits reserves."
+  },
+  "dashboard": {
+    "nav": {
+      "home": "Accueil",
+      "leads": "Leads",
+      "campaigns": "Campagnes",
+      "analytics": "Analytiques",
+      "settings": "Parametres"
+    },
+    "title": "Tableau de bord",
+    "welcome": "Bienvenue sur LeadForge AI"
+  },
+  "common": {
+    "loading": "Chargement...",
+    "error": "Une erreur est survenue",
+    "success": "Operation reussie",
+    "save": "Enregistrer",
+    "cancel": "Annuler",
+    "delete": "Supprimer",
+    "edit": "Modifier",
+    "back": "Retour",
+    "next": "Suivant",
+    "previous": "Precedent",
+    "search": "Rechercher",
+    "noResults": "Aucun resultat",
+    "comingSoon": "Bientot disponible"
+  }
+}

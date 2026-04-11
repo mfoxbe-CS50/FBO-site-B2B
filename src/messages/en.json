@@ -1,0 +1,53 @@
+{
+  "nav": {
+    "home": "Home",
+    "pricing": "Pricing",
+    "about": "About",
+    "blog": "Blog",
+    "contact": "Contact",
+    "dashboard": "Dashboard",
+    "login": "Log in",
+    "signup": "Get Started"
+  },
+  "hero": {
+    "title": "Generate Qualified Leads with AI",
+    "subtitle": "LeadForge AI automates your B2B prospecting: data enrichment, personalized outreach sequences, and intelligent tracking — all in one place.",
+    "cta": "Start for Free",
+    "ctaSecondary": "Watch Demo"
+  },
+  "footer": {
+    "description": "AI-powered lead generation platform.",
+    "product": "Product",
+    "company": "Company",
+    "legal": "Legal",
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Service",
+    "copyright": "All rights reserved."
+  },
+  "dashboard": {
+    "nav": {
+      "home": "Home",
+      "leads": "Leads",
+      "campaigns": "Campaigns",
+      "analytics": "Analytics",
+      "settings": "Settings"
+    },
+    "title": "Dashboard",
+    "welcome": "Welcome to LeadForge AI"
+  },
+  "common": {
+    "loading": "Loading...",
+    "error": "An error occurred",
+    "success": "Operation successful",
+    "save": "Save",
+    "cancel": "Cancel",
+    "delete": "Delete",
+    "edit": "Edit",
+    "back": "Back",
+    "next": "Next",
+    "previous": "Previous",
+    "search": "Search",
+    "noResults": "No results",
+    "comingSoon": "Coming soon"
+  }
+}
