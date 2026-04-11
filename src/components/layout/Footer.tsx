@@ -19,12 +19,12 @@ export function Footer() {
     if (!email) return
 
     try {
-      const webhookBase = process.env.NEXT_PUBLIC_N8N_WEBHOOK_BASE_URL
-      if (webhookBase) {
-        await fetch(`${webhookBase}/newsletter`, {
+      const webhookUrl = process.env.NEXT_PUBLIC_MAKE_WEBHOOK_NEWSLETTER
+      if (webhookUrl) {
+        await fetch(webhookUrl, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ email }),
+          body: JSON.stringify({ email, subscribed_at: new Date().toISOString() }),
         })
       }
       setSubscribed(true)

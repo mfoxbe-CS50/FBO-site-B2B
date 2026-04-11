@@ -29,9 +29,9 @@ export default function ContactPage() {
     }
 
     try {
-      const webhookBase = process.env.NEXT_PUBLIC_N8N_WEBHOOK_BASE_URL
-      if (webhookBase) {
-        await fetch(`${webhookBase}/contact`, {
+      const webhookUrl = process.env.NEXT_PUBLIC_MAKE_WEBHOOK_CONTACT
+      if (webhookUrl) {
+        await fetch(webhookUrl, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(data),

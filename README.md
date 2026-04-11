@@ -14,11 +14,11 @@ AI-powered lead generation agency platform — B2B/B2C multi-tenant SaaS.
 │                      AUTH                               │
 │  Supabase Auth (Magic Link + Google + LinkedIn OAuth)   │
 ├─────────────────────────────────────────────────────────┤
-│                    DATABASE                              │
-│  Supabase PostgreSQL (multi-tenant)                     │
+│                   BUSINESS DATA                          │
+│  Airtable (Leads, Campaigns, Contacts, Newsletter)      │
 ├─────────────────────────────────────────────────────────┤
 │                  ORCHESTRATION                           │
-│  n8n Cloud (mfoxbe.app.n8n.cloud)                      │
+│  Make.com (formerly Integromat)                         │
 │  Webhooks ──► Lead enrichment ──► Outreach sequences    │
 ├─────────────────────────────────────────────────────────┤
 │                  INTEGRATIONS                            │
@@ -38,8 +38,10 @@ AI-powered lead generation agency platform — B2B/B2C multi-tenant SaaS.
 
 - Node.js 20 LTS (see `.nvmrc`)
 - npm 10+
-- Supabase project (for auth & database)
-- Notion API key (for blog CMS)
+- Supabase project (auth only)
+- Airtable base (business data)
+- Make.com account (workflow automation)
+- Notion API key (blog CMS)
 
 ### Setup
 
@@ -79,11 +81,11 @@ src/
 ├── app/
 │   ├── [locale]/           # i18n routing (fr/en)
 │   │   ├── layout.tsx      # Root layout with providers
-│   │   ├── page.tsx        # Landing page
-│   │   ├── pricing/        # Pricing page
+│   │   ├── page.tsx        # Landing page (7 sections)
+│   │   ├── pricing/        # Pricing page (4 tiers + FAQ)
 │   │   ├── about/          # About page
 │   │   ├── blog/           # Blog (Notion CMS)
-│   │   ├── contact/        # Contact page
+│   │   ├── contact/        # Contact page (form > Make webhook)
 │   │   └── dashboard/      # Auth-protected client area
 │   ├── api/                # API routes
 │   └── globals.css         # Design system tokens
@@ -94,10 +96,12 @@ src/
 │   ├── dashboard/          # Dashboard widgets
 │   └── blog/               # Blog components
 ├── lib/
-│   ├── supabase/           # Supabase client (browser + server)
+│   ├── supabase/           # Supabase client (auth only)
+│   ├── airtable/           # Airtable CRUD client
+│   ├── make/               # Make.com webhook triggers
 │   ├── notion/             # Notion CMS client
-│   ├── n8n/                # n8n webhook triggers
 │   ├── i18n/               # Internationalization config
+│   ├── seo.ts              # JSON-LD structured data
 │   └── utils.ts            # Shared utilities
 ├── messages/               # i18n translation files
 │   ├── fr.json
@@ -111,8 +115,8 @@ src/
 - **Framework:** Next.js 15 (App Router, TypeScript)
 - **Styling:** Tailwind CSS 4 + shadcn/ui
 - **Auth:** Supabase Auth
-- **Database:** Supabase PostgreSQL
+- **Database:** Airtable
+- **Orchestration:** Make.com
 - **i18n:** next-intl (French + English)
 - **CMS:** Notion API
-- **Orchestration:** n8n Cloud
 - **Hosting:** Vercel
