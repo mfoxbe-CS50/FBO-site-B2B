@@ -1,0 +1,58 @@
+@import "tailwindcss";
+
+@theme {
+  --color-dark: #0A0E1A;
+  --color-dark-light: #111827;
+  --color-dark-card: #151C2C;
+  --color-dark-border: #1E293B;
+  --color-accent: #00FFB2;
+  --color-cyan: #00D4FF;
+  --color-violet: #7C5CFF;
+  --color-muted: #94A3B8;
+  --color-light: #F1F5F9;
+  --font-heading: 'Sora', sans-serif;
+  --font-body: 'DM Sans', sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-dark);
+  color: var(--color-light);
+  font-family: var(--font-body);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+}
+
+::selection {
+  background-color: var(--color-accent);
+  color: var(--color-dark);
+}
+
+.gradient-text {
+  background: linear-gradient(135deg, var(--color-accent), var(--color-cyan));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.gradient-border {
+  border: 1px solid transparent;
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+  background-image:
+    linear-gradient(var(--color-dark-card), var(--color-dark-card)),
+    linear-gradient(135deg, var(--color-accent), var(--color-violet));
+}
+
+.glow-accent {
+  box-shadow: 0 0 40px rgba(0, 255, 178, 0.15);
+}
+
+.glow-violet {
+  box-shadow: 0 0 40px rgba(124, 92, 255, 0.15);
+}
