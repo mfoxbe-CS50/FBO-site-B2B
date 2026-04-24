@@ -1,4 +1,4 @@
-export default function Home() {
+﻿export default function Home() {
   return (
     <>
       {/* Hero */}
@@ -110,27 +110,37 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Social Proof */}
+      {/* Credibility */}
       <section className="py-20 border-t border-dark-border">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl sm:text-4xl font-bold mb-4">
-            Ils nous font <span className="gradient-text">confiance</span>
-          </h2>
-          <p className="text-muted mb-12 max-w-xl mx-auto">
-            Nos premiers clients temoignent de l'impact de notre approche IA sur leur acquisition B2B.
-          </p>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {[
-              { quote: "En 3 mois, Fox Berens a genere plus de leads qualifies que notre equipe commerciale en un an.", author: "Directeur Commercial", company: "PME Tech, Geneve" },
-              { quote: "L'approche data-driven a completement transforme notre prospection. On ne travaille plus a l'aveugle.", author: "CEO", company: "SaaS B2B, Lausanne" },
-              { quote: "Le chatbot IA capture des leads meme le week-end. Un vrai game changer pour notre business.", author: "Fondatrice", company: "Agence digitale, Annecy" },
-            ].map((t, i) => (
-              <div key={i} className="gradient-border rounded-xl p-6 text-left">
-                <svg width="24" height="24" fill="currentColor" className="text-accent/30 mb-4"><path d="M4.583 17.321C3.553 16.227 3 15 3 13.011c0-3.5 2.457-6.637 6.03-8.188l.893 1.378c-3.335 1.804-3.987 4.145-4.247 5.621.537-.278 1.24-.375 1.929-.311 1.804.167 3.226 1.648 3.226 3.489a3.5 3.5 0 01-3.5 3.5c-1.073 0-2.099-.49-2.748-1.179zm10 0C13.553 16.227 13 15 13 13.011c0-3.5 2.457-6.637 6.03-8.188l.893 1.378c-3.335 1.804-3.987 4.145-4.247 5.621.537-.278 1.24-.375 1.929-.311 1.804.167 3.226 1.648 3.226 3.489a3.5 3.5 0 01-3.5 3.5c-1.073 0-2.099-.49-2.748-1.179z"/></svg>
-                <p className="text-sm text-light leading-relaxed mb-4">{t.quote}</p>
-                <p className="text-xs text-muted">{t.author} â€” {t.company}</p>
-              </div>
-            ))}
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+            <div>
+              <h2 className="text-3xl sm:text-4xl font-bold mb-6">
+                24 ans d&apos;operations IT.<br /><span className="gradient-text">Maintenant au service de votre croissance.</span>
+              </h2>
+              <p className="text-muted leading-relaxed mb-4">
+                Fox Berens Operations est fonde par Michel Fox Berens, ancien responsable d&apos;infrastructures IT pour des clients institutionnels sur 140+ sites en EMEA.
+              </p>
+              <p className="text-muted leading-relaxed mb-4">
+                Apres 24 ans a construire des systemes fiables pour le secteur financier, il applique la meme rigueur operationnelle a la prospection B2B, avec les outils d&apos;IA les plus recents.
+              </p>
+              <p className="text-muted leading-relaxed">
+                Base a Ferney-Voltaire, trilingue francais-anglais-portugais, il accompagne les PME du Grand Geneve et du bassin franco-suisse.
+              </p>
+            </div>
+            <div className="grid grid-cols-2 gap-6">
+              {[
+                { number: "24", label: "annees d'experience IT" },
+                { number: "140+", label: "sites geres en EMEA" },
+                { number: "10 000", label: "clients institutionnels servis" },
+                { number: "3", label: "langues (FR, EN, PT)" },
+              ].map((stat, i) => (
+                <div key={i} className="gradient-border rounded-xl p-6 text-center">
+                  <p className="text-3xl font-bold text-accent mb-1">{stat.number}</p>
+                  <p className="text-xs text-muted">{stat.label}</p>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
