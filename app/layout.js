@@ -40,13 +40,25 @@ export default function RootLayout({ children }) {
   );
 }
 
+function BadgeMark({ size = 32 }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 64 64" fill="none" className="shrink-0">
+      <circle cx="32" cy="32" r="30" stroke="currentColor" strokeWidth="1" strokeDasharray="2 4" opacity="0.6"/>
+      <circle cx="32" cy="32" r="24" stroke="currentColor" strokeWidth="1.5"/>
+      <path d="M22 42 L32 18 L42 42 Z" fill="currentColor"/>
+      <path d="M28 38 L32 28 L36 38 Z" fill="#0A0E1A"/>
+    </svg>
+  );
+}
+
 function Header() {
   return (
     <header className="sticky top-0 z-50 backdrop-blur-xl bg-dark/80 border-b border-dark-border">
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-        <a href="/" className="flex items-center gap-2">
-          <span className="text-xl font-bold font-[family-name:var(--font-heading)]">
-            <span className="text-accent">Fox</span> Berens
+        <a href="/" className="flex items-center gap-2.5 text-accent">
+          <BadgeMark size={32} />
+          <span className="text-lg font-bold font-[family-name:var(--font-heading)] text-light tracking-tight whitespace-nowrap">
+            Fox Berens
           </span>
         </a>
 
@@ -101,9 +113,12 @@ function Footer() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div className="md:col-span-2">
-            <span className="text-xl font-bold font-[family-name:var(--font-heading)]">
-              <span className="text-accent">Fox</span> Berens
-            </span>
+            <a href="/" className="flex items-center gap-2.5 text-accent">
+              <BadgeMark size={36} />
+              <span className="text-xl font-bold font-[family-name:var(--font-heading)] text-light tracking-tight">
+                Fox Berens
+              </span>
+            </a>
             <p className="mt-3 text-muted text-sm max-w-md">
               Generation de leads B2B propulsee par l'IA pour les PME du Grand Geneve et du bassin franco-suisse.
             </p>
@@ -121,7 +136,7 @@ function Footer() {
           <div>
             <h4 className="text-sm font-semibold text-light mb-4">Contact</h4>
             <div className="flex flex-col gap-2 text-sm text-muted">
-              <a href="mailto:michel@fox-berens.com" className="hover:text-accent transition-colors">michel@fox-berens.com</a>
+              <a href="mailto:hello@fox-berens.com" className="hover:text-accent transition-colors">hello@fox-berens.com</a>
               <p>Ferney-Voltaire, France</p>
               <p>Grand Geneve</p>
             </div>
