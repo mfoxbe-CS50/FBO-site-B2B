@@ -1,12 +1,13 @@
 import "./globals.css";
 
 export const metadata = {
+  metadataBase: new URL("https://fox-berens.com"),
   title: "Fox Berens Operations | Generation de leads B2B propulsee par l'IA",
   description: "Agence de generation de leads B2B alimentee par l'IA pour les PME du Grand Geneve et du bassin franco-suisse.",
   openGraph: {
     title: "Fox Berens Operations",
     description: "Generation de leads B2B propulsee par l'IA pour les PME du Grand Geneve.",
-    url: "https://fox-berens-site.vercel.app",
+    url: "https://fox-berens.com",
     siteName: "Fox Berens Operations",
     images: [{ url: "/og/home.png", width: 1200, height: 630 }],
     locale: "fr_FR",
