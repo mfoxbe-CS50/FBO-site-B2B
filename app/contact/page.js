@@ -1,3 +1,7 @@
+import ContactForm from "./ContactForm";
+
+const CAL_LINK = "https://cal.com/michel-fox-berens/30min";
+
 export const metadata = {
   title: "Contact | Fox Berens Operations",
   description: "Contactez Fox Berens Operations pour un appel decouverte gratuit de 30 minutes. Generation de leads B2B par l'IA pour les PME du Grand Geneve.",
@@ -32,58 +36,7 @@ export default function Contact() {
             <div className="lg:col-span-3">
               <div className="gradient-border rounded-2xl p-8">
                 <h2 className="text-xl font-bold text-light mb-6">Envoyez-nous un message</h2>
-                <form className="space-y-5">
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                    <div>
-                      <label className="block text-sm text-muted mb-2">Nom complet</label>
-                      <input
-                        type="text"
-                        name="name"
-                        required
-                        className="w-full bg-dark border border-dark-border rounded-lg px-4 py-3 text-sm text-light placeholder:text-muted/50 focus:outline-none focus:border-accent transition-colors"
-                        placeholder="Jean Dupont"
-                      />
-                    </div>
-                    <div>
-                      <label className="block text-sm text-muted mb-2">Email professionnel</label>
-                      <input
-                        type="email"
-                        name="email"
-                        required
-                        className="w-full bg-dark border border-dark-border rounded-lg px-4 py-3 text-sm text-light placeholder:text-muted/50 focus:outline-none focus:border-accent transition-colors"
-                        placeholder="jean@entreprise.ch"
-                      />
-                    </div>
-                  </div>
-                  <div>
-                    <label className="block text-sm text-muted mb-2">Entreprise</label>
-                    <input
-                      type="text"
-                      name="company"
-                      className="w-full bg-dark border border-dark-border rounded-lg px-4 py-3 text-sm text-light placeholder:text-muted/50 focus:outline-none focus:border-accent transition-colors"
-                      placeholder="Nom de votre entreprise"
-                    />
-                  </div>
-                  <div>
-                    <label className="block text-sm text-muted mb-2">Message</label>
-                    <textarea
-                      name="message"
-                      rows="5"
-                      required
-                      className="w-full bg-dark border border-dark-border rounded-lg px-4 py-3 text-sm text-light placeholder:text-muted/50 focus:outline-none focus:border-accent transition-colors resize-none"
-                      placeholder="Decrivez brievement votre besoin en prospection B2B..."
-                    />
-                  </div>
-                  <button
-                    type="submit"
-                    className="w-full bg-accent text-dark font-semibold px-8 py-3.5 rounded-lg hover:bg-accent/90 transition-colors text-base"
-                  >
-                    Envoyer le message
-                  </button>
-                  <p className="text-xs text-muted/60 text-center">
-                    Reponse sous 24 heures ouvrees. Vos donnees ne sont jamais partagees.
-                  </p>
-                </form>
+                <ContactForm />
               </div>
             </div>
 
@@ -102,7 +55,7 @@ export default function Contact() {
                   Reservez un creneau de 30 minutes pour discuter de votre situation et identifier les opportunites d'amelioration.
                 </p>
                 <a
-                  href="#"
+                  href="#booking"
                   className="w-full inline-flex items-center justify-center gap-2 bg-accent text-dark font-semibold px-6 py-3 rounded-lg hover:bg-accent/90 transition-colors text-sm"
                 >
                   Reserver un creneau
@@ -138,6 +91,37 @@ export default function Contact() {
                   </div>
                 </div>
               </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="booking" className="pb-24 scroll-mt-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="gradient-border rounded-2xl p-6 sm:p-8">
+            <div className="mb-6 flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4">
+              <div>
+                <h2 className="text-2xl font-bold text-light">Reservez directement</h2>
+                <p className="mt-2 text-sm text-muted">
+                  30 minutes, sans pitch. Choisissez un creneau qui vous convient.
+                </p>
+              </div>
+              <a
+                href={CAL_LINK}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-sm text-accent hover:underline"
+              >
+                Ouvrir dans un nouvel onglet
+              </a>
+            </div>
+            <div className="rounded-xl overflow-hidden border border-dark-border bg-dark">
+              <iframe
+                src={CAL_LINK}
+                title="Reservation appel decouverte"
+                loading="lazy"
+                className="w-full h-[720px]"
+              />
             </div>
           </div>
         </div>
