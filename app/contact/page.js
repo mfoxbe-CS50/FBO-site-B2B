@@ -1,6 +1,6 @@
 import ContactForm from "./ContactForm";
 
-const CAL_LINK = "https://cal.com/michel-fox-berens/30min";
+const CAL_LINK = "https://cal.eu/michel-fox-berens/30min";
 
 export const metadata = {
   title: "Contact | Fox Berens Operations",
@@ -8,7 +8,7 @@ export const metadata = {
   openGraph: {
     title: "Contact | Fox Berens Operations",
     description: "Reservez un appel decouverte gratuit de 30 minutes.",
-    images: [{ url: "/og/home.png", width: 1200, height: 630 }],
+    images: [{ url: "/og/og-image.png", width: 1200, height: 630 }],
   },
 };
 

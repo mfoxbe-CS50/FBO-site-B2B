@@ -4,7 +4,7 @@ export const metadata = {
   openGraph: {
     title: "Blog | Fox Berens Operations",
     description: "Articles sur la prospection B2B, l'IA et la generation de leads.",
-    images: [{ url: "/og/home.png", width: 1200, height: 630 }],
+    images: [{ url: "/og/og-image.png", width: 1200, height: 630 }],
   },
 };
 
