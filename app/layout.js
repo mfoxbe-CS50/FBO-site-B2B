@@ -9,7 +9,7 @@ export const metadata = {
     description: "Generation de leads B2B propulsee par l'IA pour les PME du Grand Geneve.",
     url: "https://fox-berens.com",
     siteName: "Fox Berens Operations",
-    images: [{ url: "/og/home.png", width: 1200, height: 630 }],
+    images: [{ url: "/og/og-image.png", width: 1200, height: 630 }],
     locale: "fr_FR",
     type: "website",
   },
@@ -17,7 +17,7 @@ export const metadata = {
     card: "summary_large_image",
     title: "Fox Berens Operations",
     description: "Generation de leads B2B propulsee par l'IA.",
-    images: ["/og/home.png"],
+    images: ["/og/og-image.png"],
   },
 };
 

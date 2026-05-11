@@ -4,7 +4,7 @@ export const metadata = {
   openGraph: {
     title: "Services | Fox Berens Operations",
     description: "4 formules pour accelerer votre acquisition client B2B avec l'IA.",
-    images: [{ url: "/og/home.png", width: 1200, height: 630 }],
+    images: [{ url: "/og/og-image.png", width: 1200, height: 630 }],
   },
 };
 
