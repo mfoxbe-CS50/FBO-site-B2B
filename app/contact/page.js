@@ -1,6 +1,6 @@
 import ContactForm from "./ContactForm";
 
-const CAL_LINK = "https://cal.com/michel-fox-berens/30min";
+const CAL_LINK = "https://www.cal.eu/michel-fox-berens/30min?user=michel-fox-berens&overlayCalendar=true";
 
 export const metadata = {
   title: "Contact | Fox Berens Operations",
