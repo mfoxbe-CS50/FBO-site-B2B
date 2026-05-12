@@ -22,7 +22,7 @@ Form submit → Make webhook → [Airtable Leads CREATE] → [Slack HTTP POST]
 ```
 - Make scenario `Integration Webhooks` (eu1.make.com, ID 5670255)
 - Airtable base `appAOtoZYIBtid2L3`, table Leads `tblMo6mJyOrv5UIif`
-- Slack channel `#leads-fox-berens` via **Incoming Webhook** (Make Slack app bloqué sur plan free)
+- Slack channel `#leads-fox-berens` — actuellement module Slack natif Make (échoue : `channel_not_found`), pivot Incoming Webhook prévu si fix direct du Channel ID ne suffit pas
 
 ## Workflow de dev
 - Branche par feature : `claude/<topic>-<suffix>`
@@ -32,11 +32,16 @@ Form submit → Make webhook → [Airtable Leads CREATE] → [Slack HTTP POST]
 - Toujours `npm run build` avant push (vérifie 8 routes statiques)
 
 ## État Sprint 3 MVA (clôturé 11/05/2026)
-✅ Cal.eu embed · Form → Make → Airtable · Repo renommé `FBO-site-B2B` · Metadata canonique · OG image · sitemap/robots
+✅ Cal.eu embed · Form → Make → Airtable (vérifié 12/05) · Repo renommé `FBO-site-B2B` · Metadata canonique · OG image · sitemap/robots
 ⏳ **À finir prochaine session** :
-1. Slack Incoming Webhook + HTTP module Make (pivot après échec Make Slack app sur plan free)
+1. **Fix module Slack du scenario Make** (le pipeline Webhook → Airtable fonctionne, seul Slack échoue)
+   - Erreur réelle constatée le 12/05 sur le run du 11/05 17:54:44 : `DataError: channel_not_found (200)` côté module Slack
+   - Diagnostic : **PAS un problème de plan free** (la Make Slack app répond bien, code HTTP 200) ; le bot Make ne trouve juste pas le canal `leads-fox-berens` (mauvais nom, canal privé sans invite bot, ou mauvais workspace)
+   - Piste A (5 min) : récupérer le Channel ID Slack (`C0XXXXXX` via About du canal), le coller dans le module à la place du nom, `/invite @<bot Make>` si canal privé, re-run l'exécution
+   - Piste B (fallback si Piste A échoue) : supprimer module Slack natif → créer Incoming Webhook Slack → ajouter module HTTP POST dans Make
+   - Note : champ "Enter a channel ID or name" contient actuellement `manualy` (probable coquille à corriger)
 2. Confirmer DNS `fox-berens.com` → Vercel (IP `216.198.79.1` détectée, visuel HTTPS à valider)
-3. Réactiver scenario Make (auto-désactivé après erreur Slack du 11/05 17:54)
+3. Réactiver scenario Make (auto-désactivé après erreur Slack du 11/05 17:54) — à faire **après** fix item 1, sinon re-échec immédiat
 
 ## Sources de vérité Notion
 - **Agency Hub** (master) : https://www.notion.so/34a5ce2ec32e8131a4b1f5a7f1baec49
