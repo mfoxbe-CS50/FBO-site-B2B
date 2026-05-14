@@ -40,8 +40,10 @@ Form submit → Make webhook → [Airtable Leads CREATE] → [Slack HTTP POST]
    - Piste A (5 min) : récupérer le Channel ID Slack (`C0XXXXXX` via About du canal), le coller dans le module à la place du nom, `/invite @<bot Make>` si canal privé, re-run l'exécution
    - Piste B (fallback si Piste A échoue) : supprimer module Slack natif → créer Incoming Webhook Slack → ajouter module HTTP POST dans Make
    - Note : champ "Enter a channel ID or name" contient actuellement `manualy` (probable coquille à corriger)
-2. Confirmer DNS `fox-berens.com` → Vercel (IP `216.198.79.1` détectée, visuel HTTPS à valider)
+2. Ajouter DNS `www.fox-berens.com` → Vercel (apex confirmé live sur `216.198.79.1` ; le sous-domaine `www` ne résout pas — `curl -I` → 000 le 12/05, record jamais ajouté/propagé)
 3. Réactiver scenario Make (auto-désactivé après erreur Slack du 11/05 17:54) — à faire **après** fix item 1, sinon re-échec immédiat
+
+> Planning : bloc « Sprint 3 closeout » programmé samedi 16/05 12:00-13:00. Diagnostic Make/Slack documenté via PR #9 (mergée).
 
 ## Sources de vérité Notion
 - **Agency Hub** (master) : https://www.notion.so/34a5ce2ec32e8131a4b1f5a7f1baec49
