@@ -1,4 +1,5 @@
 import { Fragment } from "react";
+import Image from "next/image";
 
 const CAL_LINK = "https://cal.eu/michel-fox-berens/30min";
 
@@ -397,8 +398,15 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
             <div className="lg:col-span-4">
-              <div className="w-full aspect-square rounded-2xl bg-gradient-to-br from-accent/20 via-cyan/10 to-dark-card flex items-center justify-center border border-dark-border">
-                <span className="text-7xl font-bold text-dark-border font-[family-name:var(--font-heading)]">MFB</span>
+              <div className="relative w-full aspect-square rounded-2xl overflow-hidden border border-dark-border">
+                <Image
+                  src="/michel-fox-berens.jpg"
+                  alt="Michel Fox Berens, fondateur de Fox Berens Operations"
+                  fill
+                  sizes="(min-width: 1024px) 33vw, 100vw"
+                  className="object-cover"
+                  priority
+                />
               </div>
               <div className="mt-5">
                 <p className="text-lg font-bold text-light">Michel Fox Berens</p>
