@@ -34,6 +34,41 @@ function Arrow({ direction = "right" }) {
   );
 }
 
+function EuStar({ cx, cy, r }) {
+  const points = [];
+  for (let i = 0; i < 10; i++) {
+    const angle = ((i * 36 - 90) * Math.PI) / 180;
+    const radius = i % 2 === 0 ? r : r * 0.4;
+    points.push(`${(cx + radius * Math.cos(angle)).toFixed(2)},${(cy + radius * Math.sin(angle)).toFixed(2)}`);
+  }
+  return <polygon points={points.join(" ")} fill="#FFCC00" />;
+}
+
+function EuFlag({ className = "" }) {
+  const cx = 30, cy = 20, r = 12;
+  const stars = Array.from({ length: 12 }, (_, i) => {
+    const angle = ((i * 30 - 90) * Math.PI) / 180;
+    return { x: cx + r * Math.cos(angle), y: cy + r * Math.sin(angle) };
+  });
+  return (
+    <svg viewBox="0 0 60 40" className={className} role="img" aria-label="Drapeau Union européenne">
+      <rect width="60" height="40" fill="#003399" rx="3" />
+      {stars.map((s, i) => (
+        <EuStar key={i} cx={s.x} cy={s.y} r={2.6} />
+      ))}
+    </svg>
+  );
+}
+
+function EuBadge({ label = "EU only", className = "" }) {
+  return (
+    <span className={`inline-flex items-center gap-1.5 bg-accent/10 border border-accent/30 rounded-full px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wider text-accent ${className}`}>
+      <EuFlag className="h-3 w-auto rounded-[2px]" />
+      {label}
+    </span>
+  );
+}
+
 export default function Home() {
   return (
     <>
@@ -107,6 +142,12 @@ export default function Home() {
             <p className="mt-5 text-muted leading-relaxed">
               Des agents IA spécifiques à vos processus, déployés dans vos systèmes, sous votre contrôle. Pas de plateforme externe, pas de boîte noire, pas de dépendance fournisseur.
             </p>
+            <div className="mt-7 inline-flex items-center gap-3 bg-dark-card border border-accent/30 rounded-full pl-2 pr-5 py-2">
+              <EuFlag className="h-6 w-auto rounded-[3px] shrink-0" />
+              <span className="text-sm font-semibold text-light">
+                Infrastructure & modèles <span className="text-accent">EU only</span>. Aucun transfert hors UE.
+              </span>
+            </div>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {[
@@ -115,17 +156,21 @@ export default function Home() {
                 body: "Spécialisé sur les workflows ops finance régulée FR/CH. Pas de pivot horizontal, pas de catalogue générique.",
               },
               {
-                title: "Sous contrainte compliance",
-                body: "Architecture compatible FINMA, GDPR, et exigences d'audit interne. Traçabilité complète des décisions agent, logs immuables, isolation tenant.",
+                title: "EU only, sous contrainte compliance",
+                body: "Inférence et modèles hébergés exclusivement en Union européenne. Aucun fournisseur sous juridiction US, aucune exposition au Cloud Act, aucun transfert hors UE des données client. Compatible FINMA, GDPR, exigences d'audit interne. Traçabilité complète, logs immuables, isolation tenant.",
+                badge: true,
               },
               {
                 title: "Vous restez propriétaire",
-                body: "Le code, les modèles, les données restent chez vous ou sur l'infra de votre choix. Pas de lock-in. Pas de licence par siège.",
+                body: "Le code, les modèles fine-tunés et les données restent chez vous ou sur l'infra EU de votre choix (Scaleway, OVH, Exoscale CH, ou on-premise). Pas de lock-in. Pas de licence par siège.",
               },
             ].map((p, i) => (
               <div key={i} className="gradient-border rounded-xl p-6 flex flex-col">
-                <div className="w-10 h-10 rounded-lg bg-accent/10 flex items-center justify-center mb-4">
-                  <span className="text-accent font-mono text-sm">0{i + 1}</span>
+                <div className="flex items-center justify-between mb-4">
+                  <div className="w-10 h-10 rounded-lg bg-accent/10 flex items-center justify-center">
+                    <span className="text-accent font-mono text-sm">0{i + 1}</span>
+                  </div>
+                  {p.badge && <EuBadge />}
                 </div>
                 <h3 className="text-lg font-semibold text-light mb-3">{p.title}</h3>
                 <p className="text-sm text-muted leading-relaxed">{p.body}</p>
@@ -485,7 +530,8 @@ export default function Home() {
               },
               {
                 q: "Quels modèles IA vous utilisez ?",
-                a: "Cela dépend du use case et de la contrainte data. Modèles open-weights hébergés en EU, modèles propriétaires sous DPA, ou stack hybride. La décision se prend après cartographie de vos contraintes compliance.",
+                badge: true,
+                a: "EU only, sans exception. Modèles open-weights hébergés en Union européenne (Llama, Mistral, Qwen sur Scaleway, OVH, Exoscale Suisse) ou modèles propriétaires sous DPA EU. Aucun fournisseur sous juridiction US, aucune exposition au Cloud Act, aucun transfert hors UE des données client. La décision finale dépend du use case et de votre cartographie compliance.",
               },
               {
                 q: "Qui détient le code et les modèles ?",
@@ -502,7 +548,10 @@ export default function Home() {
             ].map((f, i) => (
               <details key={i} className="group bg-dark-card border border-dark-border rounded-xl overflow-hidden">
                 <summary className="cursor-pointer list-none p-5 flex items-start justify-between gap-4 hover:bg-dark-light/50 transition-colors">
-                  <h3 className="text-base font-semibold text-light leading-snug">{f.q}</h3>
+                  <div className="flex flex-wrap items-center gap-3">
+                    <h3 className="text-base font-semibold text-light leading-snug">{f.q}</h3>
+                    {f.badge && <EuBadge />}
+                  </div>
                   <svg width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-accent shrink-0 mt-0.5 transition-transform group-open:rotate-45" aria-hidden="true">
                     <path d="M12 5v14M5 12h14" />
                   </svg>
