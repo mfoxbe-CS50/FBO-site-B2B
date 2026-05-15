@@ -84,7 +84,7 @@ export default function ContactForm() {
           required
           disabled={disabled}
           className="w-full bg-dark border border-dark-border rounded-lg px-4 py-3 text-sm text-light placeholder:text-muted/50 focus:outline-none focus:border-accent transition-colors resize-none disabled:opacity-60"
-          placeholder="Decrivez brievement votre besoin en prospection B2B..."
+          placeholder="Décrivez en quelques lignes votre workflow ou contrainte compliance..."
         />
       </div>
       <button
